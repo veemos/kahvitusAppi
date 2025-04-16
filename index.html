@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahvitus-appi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="kahvitus.js"></script>
+</head>
+<body>
+    <div class="container" id="kahvittelija">
+        <h2>Kahvinjuonti</h2>
+        <label for="paivamaara">Päivämäärä</label>
+        <input type="date" id="paivamaara" onchange="paivitaStatusit()">
+
+        <label><input type="checkbox" id="aamukahvi"> Aamupäiväkahvi</label>
+        <label><input type="checkbox" id="iltakahvi"> Iltapäiväkahvi</label>
+
+        <button onclick="ilmoitaKahvi()">Ilmoita kahvisi</button>
+        <button onclick="avaaKeittaja()">Kahvinkeittoon</button>
+
+        <div class="kahvi-status">
+            <span>Aamukahvi:</span>
+            <span id="aamu-status" class="status red"></span>
+        </div>
+        <div class="kahvi-status">
+            <span>Iltakahvi:</span>
+            <span id="ilta-status" class="status red"></span>
+        </div>
+    </div>
+
+    <div class="container" id="keittaja" style="display:none;">
+        <h2>Kahvinkeitto</h2>
+        <label for="paivamaara-keittaja">Päivämäärä</label>
+        <input type="date" id="paivamaara-keittaja" onchange="paivitaKeittajanNaytto()">
+
+        <div class="kahvi-status">
+            <span>Aamupäiväkahvi:</span>
+            <span id="aamu-maara">0</span>
+            <span id="aamu-status-keittaja" class="status red"></span>
+        </div>
+        <div class="kahvi-status">
+            <span>Iltapäiväkahvi:</span>
+            <span id="ilta-maara">0</span>
+            <span id="ilta-status-keittaja" class="status red"></span>
+        </div>
+
+        <button onclick="keitetty('aamu')">Kahvi keitetty ap</button>
+        <button onclick="keitetty('ilta')">Kahvi keitetty ip</button>
+        <button onclick="nollaaKahvit()">Nollaa kahvit</button>
+        <button style="background-color: #6c757d;" onclick="avaaKahvittelija()">Takaisin</button>
+    </div>
+
+
+   
+</body>
+</html>
